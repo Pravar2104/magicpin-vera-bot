@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: magicpin-vera-bot
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python bot.py
+    healthCheckPath: /v1/healthz
+    plan: free
+    autoDeploy: true
