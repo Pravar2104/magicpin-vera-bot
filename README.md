@@ -1,6 +1,8 @@
 # magicpin AI Challenge — Merchant AI Assistant ("Vera")
 
 **Submission by**: Team Vera-Next  
+**Author**: Pravar Mahajan  
+**Live Render API**: `https://magicpin-vera-bot.onrender.com` (Replace with your exact Render domain)  
 **Model / Architecture**: 4-Context Grounded Domain Synthesis Engine with Multi-Turn State Machine & Zero-Dependency HTTP Server  
 **Version**: 1.0.0  
 
