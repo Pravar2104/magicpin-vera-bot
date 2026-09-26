@@ -815,9 +815,26 @@ class VeraRequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         path = self.path.split("?")[0].rstrip("/")
-        
+
+        # Root /
+        if path == "" or path == "/":
+            self._send_json(200, {
+                "service": "magicpin Vera Bot API",
+                "status": "online",
+                "version": "1.0.0",
+                "endpoints": {
+                    "health": "/v1/healthz",
+                    "metadata": "/v1/metadata",
+                    "context": "POST /v1/context",
+                    "tick": "POST /v1/tick",
+                    "reply": "POST /v1/reply",
+                    "teardown": "POST /v1/teardown"
+                }
+            })
+            return
+
         # 1. GET /v1/healthz
-        if path == "/v1/healthz":
+        elif path == "/v1/healthz":
             counts = {"category": 0, "merchant": 0, "customer": 0, "trigger": 0}
             for (scope, _), _ in CONTEXTS.items():
                 counts[scope] = counts.get(scope, 0) + 1
@@ -836,9 +853,9 @@ class VeraRequestHandler(BaseHTTPRequestHandler):
                 "team_members": ["Pravar Mahajan"],
                 "model": "hybrid-domain-synthesizer-v1",
                 "approach": "4-context grounding with domain synthesis, adaptive digest retrieval, auto-reply detection, and instant intent-action switching",
-                "contact_email": "pravar@example.com",
+                "contact_email": "mahajanpravar@gmail.com",
                 "version": "1.0.0",
-                "submitted_at": "2026-04-26T08:00:00Z"
+                "submitted_at": "2026-09-26T18:00:00Z"
             })
             return
 
